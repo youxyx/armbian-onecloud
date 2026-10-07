@@ -141,6 +141,15 @@ jobs:
           repository: ${{ env.ARMBIAN_REPO }}
           ref: ${{ env.ARMBIAN_SHA }}
 
+      - name: Checkout my repo to get userpatches
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ github.repository }}
+          ref: ${{ github.ref_name }}
+          path: myrepo
+      - name: Copy userpatches into armbian/build
+        run: cp -r myrepo/userpatches ./
+
       - name: "Apply patch ${{ env.PATCHES }}"
         if: ${{ env.PATCHES }}
         run: |
@@ -221,6 +230,15 @@ jobs:
         with:
           repository: ${{ env.ARMBIAN_REPO }}
           ref: ${{ env.ARMBIAN_SHA }}
+
+      - name: Checkout my repo to get userpatches
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ github.repository }}
+          ref: ${{ github.ref_name }}
+          path: myrepo
+      - name: Copy userpatches into armbian/build
+        run: cp -r myrepo/userpatches ./
 
       - name: "Apply patch ${{ env.PATCHES }}"
         if: ${{ env.PATCHES }}
