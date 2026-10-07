@@ -165,7 +165,8 @@ jobs:
               BOARD=onecloud \
               BRANCH=${{ matrix.BRANCH }} \
               EXPERT=yes \
-              USE_CCACHE=no
+              USE_CCACHE=no \
+              MODULES_CLEANUP=no
           sudo chown $(id -u):$(id -g) -R output/
 
       - name: Upload artifacts
@@ -261,6 +262,7 @@ jobs:
               SKIP_EXTERNAL_TOOLCHAINS=yes \
               CLEAN_LEVEL= \
               USE_CCACHE=no \
+              MODULES_CLEANUP=no \
               COMPRESS_OUTPUTIMAGE=img
           sudo chown $(id -u):$(id -g) -R output/
 
