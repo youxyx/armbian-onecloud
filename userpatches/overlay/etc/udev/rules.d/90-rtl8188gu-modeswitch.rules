@@ -1,1 +1,0 @@
-ACTION=="add", SUBSYSTEM=="usb", ATTRS{idVendor}=="0bda", ATTRS{idProduct}=="1a2b", RUN+="/usr/bin/usb_modeswitch -KW -v 0bda -p 1a2b"
